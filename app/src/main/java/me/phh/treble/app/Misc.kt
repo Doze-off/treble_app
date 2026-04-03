@@ -23,11 +23,11 @@ object Misc: EntryStartup {
         when (key) {
             MiscSettings.biometricstrong -> {
                 val value = sp.getBoolean(key, false)
-                safeSetprop("persist.sys.phh.biometricstrong", if (value) "true" else "false")
+                SystemProperties.set("persist.sys.phh.biometricstrong", if (value) "true" else "false")
             }
             MiscSettings.securize -> {
                 val value = sp.getBoolean(key, false)
-                safeSetprop("persist.sys.phh.securize", if (value) "1" else "0")
+                SystemProperties.set("persist.sys.phh.securize", if (value) "1" else "0")
             }
             MiscSettings.treatVirtualSensorsAsReal -> {
                 val value = sp.getBoolean(key, false)
@@ -35,45 +35,37 @@ object Misc: EntryStartup {
             }
             MiscSettings.launcher3 -> {
                 val value = sp.getBoolean(key, false)
-                safeSetprop("persist.sys.phh.launcher3", if (value) "true" else "false")
+                SystemProperties.set("persist.sys.phh.launcher3", if (value) "true" else "false")
             }
             MiscSettings.disableSaeUpgrade -> {
                 val value = sp.getBoolean(key, false)
-                safeSetprop("persist.sys.phh.wifi_disable_sae", if (value) "true" else "false")
+                SystemProperties.set("persist.sys.phh.wifi_disable_sae", if (value) "true" else "false")
             }
             MiscSettings.storageFUSE -> {
                 val value = sp.getBoolean(key, false)
                 Log.d("PHH", "Setting storageFUSE to $value")
-                safeSetprop("persist.sys.fflag.override.settings_fuse", if (!value) "true" else "false")
+                SystemProperties.set("persist.sys.fflag.override.settings_fuse", if (!value) "true" else "false")
             }
             MiscSettings.disableDisplayDozeSuspend -> {
                 val value = sp.getBoolean(key, true)
-                safeSetprop("persist.sys.phh.disable_display_doze_suspend", if (value) "true" else "false")
+                SystemProperties.set("persist.sys.phh.disable_display_doze_suspend", if (value) "true" else "false")
             }
             MiscSettings.activityAnimPerfOverride -> {
                 val value = sp.getBoolean(key, false)
-                safeSetprop("persist.sys.activity_anim_perf_override", if (value) "true" else "false")
+                SystemProperties.set("persist.sys.activity_anim_perf_override", if (value) "true" else "false")
             }
             MiscSettings.lmkTweaks -> {
                 val value = sp.getBoolean(key, false)
-                if (value) {
-                    safeSetprop("ro.lmk.kill_timeout_ms", "1000")
-                    safeSetprop("ro.lmk.low", "800")
-                    safeSetprop("ro.lmk.medium", "700")
-                    safeSetprop("ro.lmk.kill_heaviest_task", "false")
-                    safeSetprop("ro.lmk.critical_upgrade", "false")
-                } else {
-                    safeSetprop("ro.lmk.kill_timeout_ms", "")
-                    safeSetprop("ro.lmk.low", "")
-                    safeSetprop("ro.lmk.medium", "")
-                    safeSetprop("ro.lmk.kill_heaviest_task", "")
-                    safeSetprop("ro.lmk.critical_upgrade", "")
-                }
+                SystemProperties.set("persist.sys.phh.lmk_tweaks", if (value) "true" else "false")
             }
-
             MiscSettings.disableExpensiveRenderingMode -> {
                 val value = sp.getBoolean(key, false)
-                safeSetprop("persist.sys.phh.disable_expensive_rendering_mode", if (value) "1" else "0")
+                SystemProperties.set("persist.sys.phh.disable_expensive_rendering_mode", if (value) "1" else "0")
+            }
+
+            MiscSettings.preferSwCodecs -> {
+                val value = sp.getBoolean(key, false)
+                SystemProperties.set("persist.sys.phh.prefer_sw_codecs", if (value) "true" else "false")
             }
             MiscSettings.unihertzdt2w -> {
                 val value = sp.getBoolean(key, false)
