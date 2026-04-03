@@ -25,6 +25,7 @@ object MiscSettings : Settings {
     val dt2w = "key_misc_dt2w"
     val activityAnimPerfOverride = "key_misc_activity_anim_perf_override"
     val lmkTweaks = "key_misc_lmk_tweaks"
+    val preferSwCodecs = "key_misc_prefer_sw_codecs"
 
 
 
