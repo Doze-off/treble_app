@@ -46,13 +46,18 @@
             android:defaultValue="false"
             android:key="key_misc_activity_anim_perf_override"
             android:title="Activity Anim Perf Override"
-            android:summary="Forces the use of performance optimization in activity animations" />
+            android:summary="Forces the use of performance optimization in activity animations\nRequires reboot" />
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
             android:key="key_misc_lmk_tweaks"
             android:title="LMK Tweaks"
-            android:summary="Apply tweaks to Low Memory Killer to improve stability and prevent aggressive shutdowns" />
+            android:summary="Apply tweaks to Low Memory Killer to improve stability and prevent aggressive shutdowns\nRequires reboot" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="key_misc_prefer_sw_codecs"
+            android:title="Prefer software/OMX codecs"
+            android:summary="Hide broken vendor C2 codecs and prefer OMX\nFixes video playback and camera recording on some devices\nRequires reboot" />
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
