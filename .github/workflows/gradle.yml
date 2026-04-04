@@ -68,3 +68,5 @@ jobs:
       
     - name: Remove bad java home
       run: sed -i '/org.gradle.java.home/d' gradle.properties
+    - name: Build (skip lint)
+      run: ./gradlew build -x lint
