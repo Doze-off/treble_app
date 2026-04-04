@@ -27,6 +27,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        persist-credentials: true
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
@@ -60,6 +61,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        persist-credentials: true
 
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
@@ -82,3 +84,13 @@ jobs:
     - name: Check APK
       run: |
         ls -lh TrebleApp.apk
+    - name: Commit APK to repo
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+    
+        git add TrebleApp.apk
+    
+        git commit -m "Update TrebleApp.apk [CI]" || echo "No changes to commit"
+    
+        git push
