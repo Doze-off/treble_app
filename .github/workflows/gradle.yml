@@ -70,3 +70,12 @@ jobs:
       run: sed -i '/org.gradle.java.home/d' gradle.properties
     - name: Build (skip lint)
       run: ./gradlew build -x lint
+    - name: Run build script
+      run: |
+        chmod +x build.sh
+        ./build.sh
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: TrebleApp
+        path: app/build/outputs/apk/**/*.apk
