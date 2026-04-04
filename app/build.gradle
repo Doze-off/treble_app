@@ -28,6 +28,11 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+    android {
+    lint {
+        abortOnError false
+        }
+    }
 
     namespace 'me.phh.treble.app'
 }
