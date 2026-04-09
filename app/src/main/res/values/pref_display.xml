@@ -40,6 +40,7 @@
     <item>Gaussian</item>
     <item>Kawase</item>
     <item>"kawase2"</item>
+    <item>"kawase2_fix_aliasing"</item>
   </array>
 
   <array name="pref_display_sf_blur_algorithm_values">
@@ -47,6 +48,7 @@
     <item>"gaussian"</item>
     <item>"kawase"</item>
     <item>"kawase2"</item>
+    <item>"kawase2_fix_aliasing"</item>
   </array>
 
   <array name="pref_display_sf_renderengine_backend">
