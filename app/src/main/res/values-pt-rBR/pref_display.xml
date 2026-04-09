@@ -23,6 +23,7 @@
     <item>"Gaussiano"</item>
     <item>"Kawase"</item>
     <item>"Kawase2</item>
+    <item>"kawase2_fix_aliasing"</item>
 
   </array>
 
