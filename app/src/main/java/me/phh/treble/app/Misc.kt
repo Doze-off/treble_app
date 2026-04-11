@@ -62,9 +62,9 @@ object Misc: EntryStartup {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.disable_expensive_rendering_mode", if (value) "1" else "0")
             }
-            MiscSettings.preferSwCodecs -> {
+            MiscSettings.preferHwCodecs -> {
                 val value = sp.getBoolean(key, false)
-                SystemProperties.set("persist.sys.phh.prefer_sw_codecs", if (value) "true" else "false")
+                SystemProperties.set("persist.sys.phh.prefer_hw_codecs", if (value) "true" else "false")
             }
             MiscSettings.bluetoothFix -> {
                 val value = sp.getBoolean(key, false)
