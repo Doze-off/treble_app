@@ -54,6 +54,7 @@
             android:title="LMK Tweaks"
             android:summary="Apply tweaks to Low Memory Killer to improve stability and prevent aggressive shutdowns\nRequires reboot" />
         <SwitchPreference
+            android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
             android:key="key_misc_prefer_hw_codecs"
             android:title="Prefer hardware codecs"
