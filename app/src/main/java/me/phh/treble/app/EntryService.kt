@@ -76,6 +76,7 @@ class EntryService: Service() {
             tryC { Oppo.startup(this) }
             tryC { Samsung.startup(this) }
             tryC { Transsion.startup(this) }
+            tryC { Hostapd.startup(this) }
             tryC { Vsmart.startup(this) }
             tryC { Xiaomi.startup(this) }
 
