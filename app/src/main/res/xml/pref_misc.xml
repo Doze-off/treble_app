@@ -68,6 +68,12 @@
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
+            android:key="key_misc_hostspot_fix"
+            android:title="Fix Hostspot (Disable Offload)"
+            android:summary="Disables tethering hardware offload to fix hostspot not working on some GSIs\nApplies instantly" />
+        <SwitchPreference
+            android:layout="@layout/preference_switch_custom"
+            android:defaultValue="false"
             android:key="key_misc_disable_expensive_rendering_mode"
             android:title="@string/displaysamsung_3"
             android:summary="@string/displaysamsung_3s" />
