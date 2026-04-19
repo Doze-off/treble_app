@@ -70,6 +70,13 @@ object Misc: EntryStartup {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.bluetooth_fix", if (value) "true" else "false")
             }
+            MiscSettings.hostspotfix -> {
+                val value = sp.getBoolean(key, false)
+                SystemProperties.set(
+                    "persist.sys.phh.tether_offload_disable",
+                    if (value) "1" else "0"
+                )
+            }
             MiscSettings.unihertzdt2w -> {
                 val value = sp.getBoolean(key, false)
                 try {
