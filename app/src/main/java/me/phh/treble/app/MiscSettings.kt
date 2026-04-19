@@ -27,6 +27,7 @@ object MiscSettings : Settings {
     val lmkTweaks = "key_misc_lmk_tweaks"
     val preferHwCodecs = "key_misc_prefer_hw_codecs"
     val bluetoothFix =  "key_misc_bluetooth_fix"
+    val hostspotfix =  "key_misc_hostspot_fix"
     
 
 
