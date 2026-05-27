@@ -24,8 +24,8 @@ object TranssionSettings : Settings {
     override fun enabled(context: Context): Boolean {
         val isTranssion = Tools.vendorFp.startsWith("Infinix/") ||
         Tools.vendorFp.startsWith("TECNO/") ||
-        Tools.vendorFp.startsWith("Itel/") ||
-        Tools.vendorFp.startsWith("google/")
+        Tools.productBd.startsWith("TECNO-") ||
+        Tools.vendorFp.startsWith("Itel/")
         Log.d("PHH", "TranssionSettings enabled() called, isTranssion = $isTranssion")
         return isTranssion
     }
