@@ -26,6 +26,7 @@ object MiscSettings : Settings {
     val activityAnimPerfOverride = "key_misc_activity_anim_perf_override"
     val lmkTweaks = "key_misc_lmk_tweaks"
     val preferHwCodecs = "key_misc_prefer_hw_codecs"
+    val preferSwCodecs = "key_misc_prefer_sw_codecs"
     val bluetoothFix =  "key_misc_bluetooth_fix"
     val hostspotfix =  "key_misc_hostspot_fix"
     
