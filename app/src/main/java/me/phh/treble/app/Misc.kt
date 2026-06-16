@@ -66,6 +66,10 @@ object Misc: EntryStartup {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.prefer_hw_codecs", if (value) "true" else "false")
             }
+            MiscSettings.preferSwCodecs -> {
+                val value = sp.getBoolean(key, false)
+                SystemProperties.set("persist.sys.phh.prefer_sw_codecs", if (value) "true" else "false")
+            }
             MiscSettings.bluetoothFix -> {
                 val value = sp.getBoolean(key, false)
                 SystemProperties.set("persist.sys.phh.bluetooth_fix", if (value) "true" else "false")
