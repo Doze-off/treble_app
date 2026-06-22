@@ -1,5 +1,9 @@
 package me.phh.treble.app
 
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+
 import android.app.Service
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -16,6 +20,8 @@ import kotlin.concurrent.thread
 class EntryService: Service() {
     companion object {
         var service: EntryService? = null
+        private const val CHANNEL_ID = "phh_treble_entry"
+        private const val NOTIF_ID = 1
 
         // Function to return the map of enabled status for settings
         fun getEnabledPreferences(context: Context): Map<String, Boolean> {
@@ -50,9 +56,31 @@ class EntryService: Service() {
             Log.e("PHH", "Caught", e)
         }
     }
+    // run as a freezer-exempt foreground service so that device-specific
+    // sensor listeners (e.g. motorola chop-chop flashlight, handwave/pocket
+    // doze) keep firing while the screen is off and the app is backgrounded.
+    // without this the android app freezer suspends the whole process and the
+    // gestures stop working until the user opens treble settings again.
+    private fun startForegroundNotif() {
+        val nm = getSystemService(NotificationManager::class.java)
+        if (nm.getNotificationChannel(CHANNEL_ID) == null) {
+            nm.createNotificationChannel(NotificationChannel(
+                CHANNEL_ID,
+                getString(R.string.app_name),
+                NotificationManager.IMPORTANCE_LOW
+            ))
+        }
+        val notif = Notification.Builder(this, CHANNEL_ID)
+            .setContentTitle(getString(R.string.app_name))
+            .setSmallIcon(R.drawable.ic_settings)
+            .setOngoing(true)
+            .build()
+        startForeground(NOTIF_ID, notif)
+    }
 
     override fun onCreate() {
         service = this
+        startForegroundNotif()
 
         thread {
             // Tools
@@ -127,9 +155,7 @@ class Starter: BroadcastReceiver() {
             Intent.ACTION_BOOT_COMPLETED,
             Intent.ACTION_MY_PACKAGE_REPLACED,
             Intent.ACTION_LOCKED_BOOT_COMPLETED -> {
-                context.startService(Intent(context, EntryService::class.java).apply {
-                    flags = Intent.FLAG_RECEIVER_REGISTERED_ONLY
-                })
+                 context.startForegroundServiceAsUser(Intent(context, EntryService::class.java), UserHandle.SYSTEM)
             }
         }
     }
