@@ -29,6 +29,7 @@ object MiscSettings : Settings {
     val preferSwCodecs = "key_misc_prefer_sw_codecs"
     val bluetoothFix =  "key_misc_bluetooth_fix"
     val hostspotfix =  "key_misc_hostspot_fix"
+    val unisocColorTransform = "key_misc_unisoc_color_transform"
     
 
 

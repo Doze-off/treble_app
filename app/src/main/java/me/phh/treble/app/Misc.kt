@@ -81,6 +81,10 @@ object Misc: EntryStartup {
                     if (value) "1" else "0"
                 )
             }
+            MiscSettings.unisocColorTransform -> {
+                val value = sp.getBoolean(key, false)
+                SystemProperties.set("persist.sys.phh.unisoc_color_transform_workaround", if (value) "true" else "false")
+            }
             MiscSettings.unihertzdt2w -> {
                 val value = sp.getBoolean(key, false)
                 try {
@@ -111,5 +115,6 @@ object Misc: EntryStartup {
         spListener.onSharedPreferenceChanged(sp, MiscSettings.storageFUSE)
         spListener.onSharedPreferenceChanged(sp, MiscSettings.unihertzdt2w)
         spListener.onSharedPreferenceChanged(sp, MiscSettings.dt2w)
+        spListener.onSharedPreferenceChanged(sp, MiscSettings.unisocColorTransform)
     }
 }

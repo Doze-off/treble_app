@@ -80,6 +80,12 @@
         <SwitchPreference
             android:layout="@layout/preference_switch_custom"
             android:defaultValue="false"
+            android:key="key_misc_unisoc_color_transform"
+            android:title="Unisoc black screen workaround"
+            android:summary="Enables a workaround for black screen issues on some Unisoc devices. May affect color-based display features. Requires framework support. Applies instantly" />
+        <SwitchPreference
+            android:layout="@layout/preference_switch_custom"
+            android:defaultValue="false"
             android:key="key_misc_disable_expensive_rendering_mode"
             android:title="@string/displaysamsung_3"
             android:summary="@string/displaysamsung_3s" />
